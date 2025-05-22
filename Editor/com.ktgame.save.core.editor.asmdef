@@ -1,7 +1,9 @@
 {
     "name": "com.ktgame.save.core.editor",
     "rootNamespace": "com.ktgame.save.core.editor",
-    "references": [],
+    "references": [
+        "GUID:54ef64fac213d0143a9dfdd1c3fa8054"
+    ],
     "includePlatforms": [
         "Editor"
     ],
