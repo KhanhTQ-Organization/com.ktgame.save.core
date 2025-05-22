@@ -1,0 +1,5 @@
+<linker>
+    <assembly fullname="com.ktgame.save.core" ignoreIfMissing="1">
+        <namespace fullname="com.ktgame.save.core" preserve="all"/>
+    </assembly>
+</linker>
