@@ -1,4 +1,4 @@
 using System.Reflection;
 
-[assembly: AssemblyTitle("com.ktgame.save.editor")]
-[assembly: AssemblyProduct("com.ktgame.save")]
+[assembly: AssemblyTitle("com.ktgame.save.core.editor")]
+[assembly: AssemblyProduct("com.ktgame.save.core")]
