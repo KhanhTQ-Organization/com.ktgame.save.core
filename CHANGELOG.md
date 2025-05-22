@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/KhanhTQ-hub/com.ktgame.save.core/compare/v1.0.1...v1.0.2) (2025-05-22)
+
+
+### Bug Fixes
+
+* references assembly ([aa95fcb](https://github.com/KhanhTQ-hub/com.ktgame.save.core/commit/aa95fcb035631fbe45926c9f6c44285e2adcbdda))
+
 ## [1.0.1](https://github.com/KhanhTQ-hub/com.ktgame.save.core/compare/v1.0.0...v1.0.1) (2025-05-22)
 
 
