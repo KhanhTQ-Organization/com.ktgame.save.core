@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "3.2.1",
-    "com.ktgame.json.mini": "1.0.0"
+    "com.ktgame.json.mini": "1.0.1"
+  },
+  "publishConfig": {
+    "registry": "http://3.25.208.95:4873"
   }
 }
