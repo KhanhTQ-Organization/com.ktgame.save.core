@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/compare/v1.0.3...v1.0.4) (2026-05-06)
+
+
+### Bug Fixes
+
+* rl ([eaa0414](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/commit/eaa0414ffaa2ece2fc391617ae7d3abe070d045b))
+
 ## [1.0.3](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/compare/v1.0.2...v1.0.3) (2025-07-04)
 
 
