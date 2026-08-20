@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/compare/v1.0.4...v1.0.5) (2026-08-20)
+
+
+### Bug Fixes
+
+* update editor save load ([814bd2d](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/commit/814bd2d658cf92fec8af9a271888cf2c5b7daa88))
+
 ## [1.0.4](https://github.com/KhanhTQ-Organization/com.ktgame.save.core/compare/v1.0.3...v1.0.4) (2026-05-06)
 
 
