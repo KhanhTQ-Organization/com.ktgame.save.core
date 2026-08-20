@@ -7,7 +7,8 @@ namespace com.ktgame.save.core
 {
 	public abstract class BaseGameSave : IGameSave
 	{
-		[ShowInInspector, InlineProperty] private readonly Dictionary<string, ISaveModel> _models = new();
+		[ShowInInspector, HideReferenceObjectPicker, DictionaryDrawerSettings(ValueLabel = "Save Model", DisplayMode = DictionaryDisplayOptions.CollapsedFoldout)] 
+		private readonly Dictionary<string, ISaveModel> _models = new();
 
 		public IReadOnlyCollection<string> Keys => _models.Keys;
 

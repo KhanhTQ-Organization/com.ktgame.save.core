@@ -21,7 +21,7 @@ namespace com.ktgame.save.core
 
 		public UniTask<byte[]> SerializeAsync<TData>(TData data)
 		{
-			return UniTask.FromResult(Serialize(data));
+			return UniTask.RunOnThreadPool(() => Serialize(data));
 		}
 
 		public TData Deserialize<TData>(byte[] data)
@@ -36,12 +36,12 @@ namespace com.ktgame.save.core
 
 		public UniTask<TData> DeserializeAsync<TData>(byte[] data)
 		{
-			return UniTask.FromResult(Deserialize<TData>(data));
+			return UniTask.RunOnThreadPool(() => Deserialize<TData>(data));
 		}
 
 		public UniTask<object> DeserializeAsync(byte[] data, Type dataType)
 		{
-			return UniTask.FromResult(Deserialize(data, dataType));
+			return UniTask.RunOnThreadPool(() => Deserialize(data, dataType));
 		}
 	}
 }

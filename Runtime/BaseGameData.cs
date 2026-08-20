@@ -7,7 +7,8 @@ namespace com.ktgame.save.core
 {
 	public abstract class BaseGameData : IGameData
 	{
-		[ShowInInspector, InlineProperty] private readonly Dictionary<string, IObscuredModel> _models = new();
+		[ShowInInspector, HideReferenceObjectPicker, DictionaryDrawerSettings(ValueLabel = "Data Model", DisplayMode = DictionaryDisplayOptions.CollapsedFoldout)] 
+		private readonly Dictionary<string, IObscuredModel> _models = new();
 
 		public IReadOnlyCollection<string> Keys => _models.Keys;
 

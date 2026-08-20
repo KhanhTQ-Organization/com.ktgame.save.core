@@ -43,6 +43,7 @@ namespace com.ktgame.save.core
 		public bool Load(Type saveModelType)
 		{
 			var fileName = saveModelType.Name;
+			var backupFilename = fileName + "-backup";
 			try
 			{
 				if (_loadStrategies.TryGetValue(saveModelType, out var loadStrategy))
@@ -53,7 +54,28 @@ namespace com.ktgame.save.core
 					if (_storageProvider.Exists(fileName))
 					{
 						firstLoad = false;
-						saveModel = (ISaveModel)_storageProvider.Load(fileName, saveModelType);
+						try
+						{
+							saveModel = (ISaveModel)_storageProvider.Load(fileName, saveModelType);
+						}
+						catch (Exception e)
+						{
+							if (_storageProvider.Exists(backupFilename))
+							{
+								Debug.LogWarning($"Main save {fileName} corrupted, loading backup. Error: {e.Message}");
+								saveModel = (ISaveModel)_storageProvider.Load(backupFilename, saveModelType);
+							}
+							else
+							{
+								throw;
+							}
+						}
+					}
+					else if (_storageProvider.Exists(backupFilename))
+					{
+						firstLoad = false;
+						Debug.LogWarning($"Main save {fileName} missing, loading backup.");
+						saveModel = (ISaveModel)_storageProvider.Load(backupFilename, saveModelType);
 					}
 					else
 					{
@@ -86,6 +108,7 @@ namespace com.ktgame.save.core
 		public async UniTask<bool> LoadAsync(Type saveModelType)
 		{
 			var fileName = saveModelType.Name;
+			var backupFilename = fileName + "-backup";
 			try
 			{
 				if (_loadStrategies.TryGetValue(saveModelType, out var loadStrategy))
@@ -96,7 +119,28 @@ namespace com.ktgame.save.core
 					if (_storageProvider.Exists(fileName))
 					{
 						firstLoad = false;
-						saveModel = (ISaveModel)await _storageProvider.LoadAsync(fileName, saveModelType);
+						try
+						{
+							saveModel = (ISaveModel)await _storageProvider.LoadAsync(fileName, saveModelType);
+						}
+						catch (Exception e)
+						{
+							if (_storageProvider.Exists(backupFilename))
+							{
+								Debug.LogWarning($"Main save {fileName} corrupted, loading backup. Error: {e.Message}");
+								saveModel = (ISaveModel)await _storageProvider.LoadAsync(backupFilename, saveModelType);
+							}
+							else
+							{
+								throw;
+							}
+						}
+					}
+					else if (_storageProvider.Exists(backupFilename))
+					{
+						firstLoad = false;
+						Debug.LogWarning($"Main save {fileName} missing, loading backup.");
+						saveModel = (ISaveModel)await _storageProvider.LoadAsync(backupFilename, saveModelType);
 					}
 					else
 					{

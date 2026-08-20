@@ -41,9 +41,16 @@ namespace com.ktgame.save.core
 					{
 						while (currentVersion < targetVersion)
 						{
-							var converter = _converters[currentVersion];
-							rawSaveModel = converter.Convert(saveModel);
-							currentVersion = converter.ToVersion;
+							if (_converters.TryGetValue(currentVersion, out var converter))
+							{
+								rawSaveModel = converter.Convert(rawSaveModel);
+								currentVersion = converter.ToVersion;
+							}
+							else
+							{
+								Debug.LogError($"Missing save version converter from version {currentVersion} to {targetVersion}. Save data might be corrupted or incompatible!");
+								break;
+							}
 						}
 					}
 
